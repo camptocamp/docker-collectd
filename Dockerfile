@@ -9,3 +9,5 @@ RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 
 COPY collectd.conf /etc/collectd/collectd.conf
+
+ENTRYPOINT ["collectd", "-f"]

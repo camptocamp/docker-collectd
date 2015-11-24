@@ -8,4 +8,4 @@ RUN apt-get install -y collectd=$COLLECTD_VERSION
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 
-#ADD collectd.conf /etc/collectd/collectd.conf
+COPY collectd.conf /etc/collectd/collectd.conf

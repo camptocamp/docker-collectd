@@ -3,13 +3,13 @@
 openssl aes-256-cbc -K $encrypted_6ad810f2082d_key -iv $encrypted_6ad810f2082d_iv -in .dockercfg.enc -out ~/.dockercfg -d
 if [ "$TRAVIS_BRANCH" == "master" ]; then
   echo "Deploying image to docker hub for master (latest)"
-  docker push "camptocamp/:latest"
+  docker push "camptocamp/collectd:latest"
 elif [ ! -z "$TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   echo "Deploying image to docker hub for tag ${TRAVIS_TAG}"
-  docker push "camptocamp/:${TRAVIS_TAG}"
+  docker push "camptocamp/collectd:${TRAVIS_TAG}"
 elif [ ! -z "$TRAVIS_BRANCH" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   echo "Deploying image to docker hub for branch ${TRAVIS_BRANCH}"
-  docker push "camptocamp/:${TRAVIS_BRANCH}"
+  docker push "camptocamp/collectd:${TRAVIS_BRANCH}"
 else
   echo "Not deploying image"
 fi

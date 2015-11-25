@@ -6,7 +6,7 @@ RUN echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/50no-install-recom
 RUN echo 'APT::Install-Suggests "0";' > /etc/apt/apt.conf.d/50no-install-suggests
 RUN echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/backports.list
 RUN apt-get update
-RUN apt-get install -y collectd-core=$COLLECTD_VERSION
+RUN apt-get install -y collectd-core=$COLLECTD_VERSION collectd-utils=$COLLECTD_VERSION
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 

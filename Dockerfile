@@ -10,10 +10,17 @@ COPY /50collectd /etc/apt/preferences.d/
 
 RUN apt-get update \
  && apt-get -y upgrade \
- && apt-get install -y collectd-core collectd-utils \
+ && apt-get -y install \
+    runit \
+    collectd-core \
+    collectd-utils \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
-COPY collectd.conf /etc/collectd/collectd.conf
+RUN touch /etc/inittab
+RUN mkdir -p /etc/service/collectd/
+COPY /collectd.run /etc/service/collectd/run
 
-ENTRYPOINT ["collectd", "-f"]
+COPY /collectd.conf /etc/collectd/collectd.conf
+
+ENTRYPOINT ["/usr/sbin/runsvdir-start"]

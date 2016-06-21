@@ -21,6 +21,7 @@ RUN touch /etc/inittab
 RUN mkdir -p /etc/service/collectd/
 COPY /collectd.run /etc/service/collectd/run
 
+RUN mkdir -p /etc/collectd/collectd.conf.d
 COPY /collectd.conf /etc/collectd/collectd.conf
 
 ENTRYPOINT ["/usr/sbin/runsvdir-start"]

@@ -14,6 +14,7 @@ RUN apt-get update \
     runit \
     collectd-core \
     collectd-utils \
+    libcurl3-gnutls \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 

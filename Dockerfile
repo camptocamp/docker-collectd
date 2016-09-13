@@ -15,6 +15,7 @@ RUN apt-get update \
     collectd-core \
     collectd-utils \
     libcurl3-gnutls \
+    libyajl2 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 

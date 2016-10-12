@@ -16,6 +16,8 @@ RUN apt-get update \
     collectd-utils \
     libcurl3-gnutls \
     libyajl2 \
+    libprotobuf-c1 \
+    libmicrohttpd10 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
@@ -25,5 +27,7 @@ COPY /collectd.run /etc/service/collectd/run
 
 RUN mkdir -p /etc/collectd/collectd.conf.d
 COPY /collectd.conf /etc/collectd/collectd.conf
+
+LABEL prometheus_port=9103
 
 ENTRYPOINT ["/usr/sbin/runsvdir-start"]

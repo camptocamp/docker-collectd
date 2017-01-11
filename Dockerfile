@@ -8,9 +8,12 @@ RUN echo "deb http://pkg.camptocamp.net/apt xenial/dev sysadmin" > /etc/apt/sour
 RUN apt-key adv --keyserver hkps.pool.sks-keyservers.net --recv-keys 0xE2DCB07F5C662D02
 COPY /50collectd /etc/apt/preferences.d/
 
+COPY rootfs_prefix/ /usr/src/rootfs_prefix/
+
 RUN apt-get update \
  && apt-get -y upgrade \
  && apt-get -y install \
+    build-essential \
     runit \
     collectd-core \
     collectd-utils \
@@ -18,6 +21,8 @@ RUN apt-get update \
     libyajl2 \
     libprotobuf-c1 \
     libmicrohttpd10 \
+ && make -C /usr/src/rootfs_prefix/ \
+ && apt-get -y --purge --autoremove remove build-essential \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 

@@ -1,4 +1,0 @@
----
-:global:
-  docker_image_name: 'collectd'
-  travis_key_id: '6ad810f2082d'

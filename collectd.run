@@ -1,4 +1,4 @@
 #!/bin/sh
 
 exec 2>&1
-exec /usr/sbin/collectd -f
+chpst -e /etc/service/collectd/env /usr/sbin/collectd -f

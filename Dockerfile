@@ -25,7 +25,7 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 RUN touch /etc/inittab
-RUN mkdir -p /etc/service/collectd/
+RUN mkdir -p /etc/service/collectd/env
 COPY /collectd.run /etc/service/collectd/run
 
 RUN mkdir -p /etc/collectd/collectd.conf.d

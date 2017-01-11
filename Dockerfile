@@ -17,8 +17,6 @@ RUN apt-get update \
     runit \
     collectd-core \
     collectd-utils \
-    libcurl3-gnutls \
-    libyajl2 \
     libprotobuf-c1 \
     libmicrohttpd10 \
  && make -C /usr/src/rootfs_prefix/ \

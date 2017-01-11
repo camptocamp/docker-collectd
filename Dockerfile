@@ -19,6 +19,7 @@ RUN apt-get update \
     collectd-utils \
     libprotobuf-c1 \
     libmicrohttpd10 \
+    libyajl2 \
  && make -C /usr/src/rootfs_prefix/ \
  && apt-get -y --purge --autoremove remove build-essential \
  && apt-get clean \

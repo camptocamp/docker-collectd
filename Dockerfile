@@ -15,6 +15,7 @@ RUN apt-get update \
  && apt-get -y install \
     build-essential \
     runit \
+    netcat-openbsd \
     collectd-core \
     collectd-utils \
     libprotobuf-c1 \
@@ -28,6 +29,7 @@ RUN apt-get update \
 RUN touch /etc/inittab
 RUN mkdir -p /etc/service/collectd/env
 COPY /collectd.run /etc/service/collectd/run
+COPY /collectd.check /etc/service/collectd/check
 
 RUN mkdir -p /etc/collectd/collectd.conf.d
 COPY /collectd.conf /etc/collectd/collectd.conf

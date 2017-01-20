@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+echo "checking if we have exactly one collectd process" 1>&2
+[ "$(pgrep -f '/usr/sbin/collectd' | wc -l)" = 1 ]
+
+echo "checking if collectd socket answers" 1>&2
+collectdctl listval > /dev/null
+
+echo "checking if collectd prometheus port works" 1>&2
+nc -vz 127.0.0.1 9103
+
+echo "all good!" 1>&2

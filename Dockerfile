@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/50no-install-recommends
 RUN echo 'APT::Install-Suggests "0";' > /etc/apt/apt.conf.d/50no-install-suggests
-RUN echo "deb http://pkg.camptocamp.net/apt xenial/dev sysadmin" > /etc/apt/sources.list.d/collectd-c2c.list
+RUN echo "deb http://pkg.camptocamp.net/apt xenial/dev collectd-5" > /etc/apt/sources.list.d/collectd-c2c.list
 RUN apt-key adv --keyserver hkps.pool.sks-keyservers.net --recv-keys 0xF4831166EFDCBABE
 COPY /50collectd /etc/apt/preferences.d/
 

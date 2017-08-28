@@ -38,6 +38,4 @@ COPY /collectd.check /etc/service/collectd/check
 RUN mkdir -p /etc/collectd/collectd.conf.d
 COPY /collectd.conf /etc/collectd/collectd.conf
 
-LABEL prometheus_port=9103
-
 ENTRYPOINT ["/usr/sbin/runsvdir-start"]

@@ -14,6 +14,7 @@ RUN apt-get update \
  && apt-get -y upgrade \
  && apt-get -y install \
     build-essential \
+    gnupg \
     runit \
     netcat-openbsd \
     collectd-core \
@@ -22,7 +23,7 @@ RUN apt-get update \
     libmicrohttpd10 \
     libyajl2 \
  && make -C /usr/src/rootfs_prefix/ \
- && apt-get -y --purge --autoremove remove build-essential \
+ && apt-get -y --purge --autoremove remove build-essential gnupg \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 

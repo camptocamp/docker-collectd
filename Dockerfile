@@ -38,4 +38,4 @@ COPY /collectd.check /etc/service/collectd/check
 RUN mkdir -p /etc/collectd/collectd.conf.d
 COPY /collectd.conf /etc/collectd/collectd.conf
 
-ENTRYPOINT ["/usr/sbin/runsvdir-start"]
+ENTRYPOINT ["/etc/runit/2"]

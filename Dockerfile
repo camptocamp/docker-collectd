@@ -23,7 +23,7 @@ RUN apt-get update \
     collectd-core \
     collectd-utils \
     libprotobuf-c1 \
-    libmicrohttpd10 \
+    libmicrohttpd12 \
     libyajl2 \
  && make -C /usr/src/rootfs_prefix/ \
  && apt-get -y --purge --autoremove remove build-essential gnupg dirmngr \

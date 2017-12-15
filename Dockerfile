@@ -19,6 +19,7 @@ RUN apt-get update \
  && apt-get -y install \
     build-essential \
     runit \
+    procps \
     netcat-openbsd \
     collectd-core \
     collectd-utils \

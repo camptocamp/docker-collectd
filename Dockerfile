@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:stretch-slim
 
 ARG CONFD_VERSION=0.15.0
 ARG CONFD_SHA256=7f3aba1d803543dd1df3944d014f055112cf8dadf0a583c76dd5f46578ebe3c2

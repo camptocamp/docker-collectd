@@ -1,5 +1,12 @@
 FROM debian:stretch
 
+ARG CONFD_VERSION=0.15.0
+ARG CONFD_SHA256=7f3aba1d803543dd1df3944d014f055112cf8dadf0a583c76dd5f46578ebe3c2
+
+ADD https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64 /usr/local/bin/confd
+RUN echo "${CONFD_SHA256}  /usr/local/bin/confd" | sha256sum -c -
+RUN chmod 0755 /usr/local/bin/confd
+
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/50no-install-recommends
